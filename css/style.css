@@ -1,0 +1,170 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #121212; /* fundo escuro */
+  color: #f0d57e;     /* dourado suave */
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Títulos com efeito neon dourado */
+h2, h3 {
+  color: #f0d57e;
+  text-shadow:
+    0 0 5px #f0d57e,
+    0 0 10px #f0d57e,
+    0 0 20px #f0d57e;
+  margin-bottom: 20px;
+}
+
+/* Formulários e inputs */
+form input[type="text"],
+form select {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 2px solid #5b3313;
+  background: #2f2f2f;
+  color: #f0d57e;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form select:focus {
+  outline: none;
+  border-color: #e63946; /* vermelho vivo */
+  box-shadow: 0 0 8px #e63946;
+}
+
+form input[type="password"],
+form select {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 2px solid #5b3313;
+  background: #2f2f2f;
+  color: #f0d57e;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="password"]:focus,
+form select:focus {
+  outline: none;
+  border-color: #e63946; /* vermelho vivo */
+  box-shadow: 0 0 8px #e63946;
+}
+
+
+/* Botões com efeito neon */
+button {
+  background: linear-gradient(45deg, #e63946, #f0d57e);
+  color: #121212;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow:
+    0 0 5px #e63946,
+    0 0 10px #f0d57e,
+    0 0 15px #e63946;
+  transition: background 0.4s ease;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #f0d57e, #e63946);
+  color: #121212;
+  box-shadow:
+    0 0 10px #f0d57e,
+    0 0 20px #e63946,
+    0 0 30px #f0d57e;
+}
+
+/* Caixa das perguntas */
+.pergunta-item {
+  background: #1f1f1f;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 15px;
+  box-shadow:
+    0 0 10px #5b3313,
+    inset 0 0 20px #2f2f2f;
+}
+
+/* Resultado final */
+#resultado {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 25px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow:
+    0 0 15px #e63946,
+    inset 0 0 25px #f0d57e;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #f0d57e;
+  text-shadow: 0 0 5px #f0d57e;
+}
+
+/* Link de logout - no canto superior direito */
+a.logout {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: #e63946;
+  color: #121212;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow:
+    0 0 10px #e63946;
+  transition: background 0.3s ease;
+  z-index: 999;
+}
+
+a.logout:hover {
+  background: #f0d57e;
+  color: #121212;
+  box-shadow:
+    0 0 15px #f0d57e;
+}
+
+/* Responsividade simples */
+@media (max-width: 600px) {
+  body {
+    padding: 15px 10px;
+  }
+
+  form input[type="text"],
+  form select,
+  button {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .pergunta-item {
+    padding: 15px;
+  }
+}

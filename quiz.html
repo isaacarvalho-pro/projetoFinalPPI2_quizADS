@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz ADS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a href="php/logout.php" class="logout">Sair</a>
+
+<div id="quiz-container">
+    <h2>Quiz ADS</h2>
+    <div id="pergunta-box">
+        <p id="pergunta-texto"></p>
+        <form id="form-opcoes">
+            <!-- As opções serão carregadas aqui via jQuery -->
+        </form>
+    </div>
+    <button id="btn-proxima" style="display:none;">Próxima Pergunta</button>
+    <div id="resultado" style="display:none;"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

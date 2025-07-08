@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Quiz ADS - Login & Cadastro</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* Pequeno ajuste pra esconder um form enquanto o outro aparece */
+        .form-container {
+          max-width: 400px;
+          margin: 70px auto;
+          background: #1f1f1f;
+          padding: 30px;
+          border-radius: 15px;
+          box-shadow: 0 0 15px #e63946;
+        }
+        .hidden {
+          display: none;
+        }
+        .toggle-link {
+          color: #e63946;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login-form" class="form-container">
+    <h2>Login</h2>
+    <form action="php/login.php" method="post">
+        <label for="login-email">E-mail</label>
+        <input type="text" id="login-email" name="email" required placeholder="Digite seu e-mail" />
+        <label for="login-senha">Senha</label>
+        <input type="password" id="login-senha" name="senha" required placeholder="Digite sua senha" />
+        <button type="submit">Entrar</button>
+    </form>
+    <p style="margin-top:15px; color:#f0d57e;">
+        Não tem conta? <span class="toggle-link" id="show-cadastro">Cadastre-se aqui</span>
+    </p>
+</div>
+
+<div id="cadastro-form" class="form-container hidden">
+    <h2>Cadastro</h2>
+    <form action="php/cadastro.php" method="post" id="form-cadastro">
+        <label for="cadastro-nome">Nome</label>
+        <input type="text" id="cadastro-nome" name="nome" required placeholder="Seu nome completo" />
+        <label for="cadastro-email">E-mail</label>
+        <input type="email" id="cadastro-email" name="email" required placeholder="Seu e-mail válido" />
+        <label for="cadastro-senha">Senha</label>
+        <input type="password" id="cadastro-senha" name="senha" required placeholder="Crie uma senha" />
+        <label for="cadastro-confirmaSenha">Confirmar senha</label>
+        <input type="password" id="cadastro-confirmaSenha" name="confirmaSenha" required placeholder="Repita a senha" />
+        <button type="submit">Cadastrar</button>
+    </form>
+    <p style="margin-top:15px; color:#f0d57e;">
+        Já tem conta? <span class="toggle-link" id="show-login">Faça login</span>
+    </p>
+</div>
+
+<script>
+    // Alterna entre login e cadastro
+    document.getElementById('show-cadastro').addEventListener('click', () => {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('cadastro-form').classList.remove('hidden');
+    });
+    document.getElementById('show-login').addEventListener('click', () => {
+      document.getElementById('cadastro-form').classList.add('hidden');
+      document.getElementById('login-form').classList.remove('hidden');
+    });
+
+    // Validação simples senha igual no cadastro
+    document.getElementById('form-cadastro').addEventListener('submit', function(e){
+      const senha = document.getElementById('cadastro-senha').value;
+      const confirma = document.getElementById('cadastro-confirmaSenha').value;
+      if(senha !== confirma){
+        alert('As senhas não coincidem!');
+        e.preventDefault();
+      }
+    });
+</script>
+
+<script>
+    // Função para pegar parâmetro da URL
+    function getParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    const erro = getParam('erro');
+    if (erro) {
+      let mensagem = '';
+      if (erro === 'preencha') {
+        mensagem = 'Por favor, preencha todos os campos.';
+      } else if (erro === 'senha') {
+        mensagem = 'Senha incorreta.';
+      } else if (erro === 'usuario') {
+        mensagem = 'Usuário não encontrado.';
+      }
+      if(mensagem) alert(mensagem);
+      // Se quiser mostrar no DOM ao invés de alert, dá pra criar uma div e preencher o texto aqui
+    }
+</script>
+
+</body>
+</html>
