@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>Quiz ADS - Login & Cadastro</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-        /* Pequeno ajuste pra esconder um form enquanto o outro aparece */
-        .form-container {
-          max-width: 400px;
-          margin: 70px auto;
-          background: #1f1f1f;
-          padding: 30px;
-          border-radius: 15px;
-          box-shadow: 0 0 15px #e63946;
-        }
-        .hidden {
-          display: none;
-        }
-        .toggle-link {
-          color: #e63946;
-          cursor: pointer;
-          text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Quiz ADS - Login & Cadastro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Pequeno ajuste pra esconder um form enquanto o outro aparece */
+    .form-container {
+      max-width: 400px;
+      margin: 70px auto;
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #e63946;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .toggle-link {
+      color: #e63946;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="login-form" class="form-container">
-    <h2>Login</h2>
-    <form action="php/login.php" method="post">
+  <div id="login-form" class="form-container">
+    <h2 class="mx-auto p-2 text-center">Login</h2>
+    <form action="php/login.php" method="post" class="d-flex flex-column">
+      <div>
         <label for="login-email">E-mail</label>
         <input type="text" id="login-email" name="email" required placeholder="Digite seu e-mail" />
         <label for="login-senha">Senha</label>
         <input type="password" id="login-senha" name="senha" required placeholder="Digite sua senha" />
-        <button type="submit">Entrar</button>
-    </form>
-    <p style="margin-top:15px; color:#f0d57e;">
-        Não tem conta? <span class="toggle-link" id="show-cadastro">Cadastre-se aqui</span>
-    </p>
-</div>
+      </div>
 
-<div id="cadastro-form" class="form-container hidden">
-    <h2>Cadastro</h2>
-    <form action="php/cadastro.php" method="post" id="form-cadastro">
+      <button class="mt-2" type="submit">Entrar</button>
+    </form>
+    <p style="margin-top:15px; color:#08d594; text-align: center;">
+      Não tem conta? <span class="toggle-link" id="show-cadastro">Cadastre-se aqui</span>
+    </p>
+  </div>
+
+  <div id="cadastro-form" class="form-container hidden " >
+    <h2 class="mx-auto p-2 text-center">Cadastro</h2>
+    <form action="php/cadastro.php" method="post" id="form-cadastro" class="d-flex flex-column">
+      <div>
         <label for="cadastro-nome">Nome</label>
         <input type="text" id="cadastro-nome" name="nome" required placeholder="Seu nome completo" />
         <label for="cadastro-email">E-mail</label>
@@ -51,14 +61,15 @@
         <input type="password" id="cadastro-senha" name="senha" required placeholder="Crie uma senha" />
         <label for="cadastro-confirmaSenha">Confirmar senha</label>
         <input type="password" id="cadastro-confirmaSenha" name="confirmaSenha" required placeholder="Repita a senha" />
-        <button type="submit">Cadastrar</button>
+      </div>
+      <button class="mt-2" type="submit">Cadastrar</button>
     </form>
-    <p style="margin-top:15px; color:#f0d57e;">
-        Já tem conta? <span class="toggle-link" id="show-login">Faça login</span>
+    <p style="margin-top:15px; color:#08d594; text-align: center;">
+      Já tem conta? <span class="toggle-link" id="show-login">Faça login</span>
     </p>
-</div>
+  </div>
 
-<script>
+  <script>
     // Alterna entre login e cadastro
     document.getElementById('show-cadastro').addEventListener('click', () => {
       document.getElementById('login-form').classList.add('hidden');
@@ -70,17 +81,17 @@
     });
 
     // Validação simples senha igual no cadastro
-    document.getElementById('form-cadastro').addEventListener('submit', function(e){
+    document.getElementById('form-cadastro').addEventListener('submit', function (e) {
       const senha = document.getElementById('cadastro-senha').value;
       const confirma = document.getElementById('cadastro-confirmaSenha').value;
-      if(senha !== confirma){
+      if (senha !== confirma) {
         alert('As senhas não coincidem!');
         e.preventDefault();
       }
     });
-</script>
+  </script>
 
-<script>
+  <script>
     // Função para pegar parâmetro da URL
     function getParam(param) {
       const urlParams = new URLSearchParams(window.location.search);
@@ -97,10 +108,11 @@
       } else if (erro === 'usuario') {
         mensagem = 'Usuário não encontrado.';
       }
-      if(mensagem) alert(mensagem);
+      if (mensagem) alert(mensagem);
       // Se quiser mostrar no DOM ao invés de alert, dá pra criar uma div e preencher o texto aqui
     }
-</script>
+  </script>
 
 </body>
+
 </html>

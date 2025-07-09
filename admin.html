@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Painel Administrativo - Quiz ADS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<h2>Painel do Administrador</h2>
-<a href="php/logout.php" class="logout">Sair</a>
+<body id="painel_adm">
+    <div class="adm_perguntas">
+        <h2 class="text-center">Painel do Administrador</h2>
+        <a href="php/logout.php" class="logout">Sair</a>
 
 
-<h3>Adicionar Nova Pergunta</h3>
-<form id="form-nova-pergunta">
-    <input type="text" name="pergunta" placeholder="Pergunta" required><br>
-    <input type="text" name="op1" placeholder="Opção 1" required><br>
-    <input type="text" name="op2" placeholder="Opção 2" required><br>
-    <input type="text" name="op3" placeholder="Opção 3" required><br>
-    <input type="text" name="op4" placeholder="Opção 4" required><br>
-    <label>Resposta correta:
-        <select name="correta">
-            <option value="1">Opção 1</option>
-            <option value="2">Opção 2</option>
-            <option value="3">Opção 3</option>
-            <option value="4">Opção 4</option>
-        </select>
-    </label><br>
-    <button type="submit">Adicionar</button>
-</form>
+        <h3>Adicionar Nova Pergunta</h3>
+        <form id="form-nova-pergunta">
+            <input type="text" name="pergunta" placeholder="Pergunta" required><br>
+            <input type="text" name="op1" placeholder="Opção 1" required><br>
+            <input type="text" name="op2" placeholder="Opção 2" required><br>
+            <input type="text" name="op3" placeholder="Opção 3" required><br>
+            <input type="text" name="op4" placeholder="Opção 4" required><br>
+            <label>Resposta correta:
+                <select name="correta">
+                    <option value="1">Opção 1</option>
+                    <option value="2">Opção 2</option>
+                    <option value="3">Opção 3</option>
+                    <option value="4">Opção 4</option>
+                </select>
+            </label><br>
+            <button type="submit">Adicionar</button>
+        </form>
 
-<h3>Lista de Perguntas</h3>
-<div id="lista-perguntas"></div>
-<h3>Editar Pergunta</h3>
-<div id="form-editar" style="display:none;">
-    <form id="form-editar-pergunta">
-        <input type="hidden" name="id">
-        <input type="text" name="pergunta" placeholder="Pergunta" required><br>
-        <input type="text" name="op1" placeholder="Opção 1" required><br>
-        <input type="text" name="op2" placeholder="Opção 2" required><br>
-        <input type="text" name="op3" placeholder="Opção 3" required><br>
-        <input type="text" name="op4" placeholder="Opção 4" required><br>
-        <label>Resposta correta:
-            <select name="correta">
-                <option value="1">Opção 1</option>
-                <option value="2">Opção 2</option>
-                <option value="3">Opção 3</option>
-                <option value="4">Opção 4</option>
-            </select>
-        </label><br>
-        <button type="submit">Salvar Edição</button>
-    </form>
-</div>
+        <h3>Lista de Perguntas</h3>
+        <div id="lista-perguntas"></div>
+        <h3>Editar Pergunta</h3>
+        <div id="form-editar" style="display:none;">
+            <form id="form-editar-pergunta">
+                <input type="hidden" name="id">
+                <input type="text" name="pergunta" placeholder="Pergunta" required><br>
+                <input type="text" name="op1" placeholder="Opção 1" required><br>
+                <input type="text" name="op2" placeholder="Opção 2" required><br>
+                <input type="text" name="op3" placeholder="Opção 3" required><br>
+                <input type="text" name="op4" placeholder="Opção 4" required><br>
+                <label>Resposta correta:
+                    <select name="correta">
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                        <option value="3">Opção 3</option>
+                        <option value="4">Opção 4</option>
+                    </select>
+                </label><br>
+                <button type="submit">Salvar Edição</button>
+            </form>
+        </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="js/admin.js"></script>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/admin.js"></script>
 </body>
+
 </html>
